@@ -41,4 +41,12 @@ public class BusService {
 			return new ResponseEntity<Object>(busId +" location is not available.", HttpStatus.NOT_FOUND);
 		}
 	}
+
+	public Integer getOccupancyStatus(final  String busId) {
+		return buRepository.getSeatsLeft(busId);
+	}
+
+	public Integer getTimeSpentOnRoute(final String busId) {
+		return null;
+	}
 }

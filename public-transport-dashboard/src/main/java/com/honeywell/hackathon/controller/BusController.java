@@ -1,6 +1,7 @@
 package com.honeywell.hackathon.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,12 +22,14 @@ public class BusController {
     }
 
     @GetMapping(value = "/occupancy/{bus-id}")
-    public ResponseEntity<String> getOccupancy(@PathVariable("bus-id") final String busId) {
-        return null;
+    public ResponseEntity<Integer> getOccupancy(@PathVariable("bus-id") final String busId) {
+       final Integer noOfSeats= busService.getOccupancyStatus(busId);
+       return new ResponseEntity<Integer>(noOfSeats, HttpStatus.OK);
     }
 
     @GetMapping(value = "/routetimespent/{bus-id}")
-    public ResponseEntity<String> getTimeSpentOnRoute(@PathVariable("bus-id") final String busId) {
-        return null;
+    public ResponseEntity<Integer> getTimeSpentOnRoute(@PathVariable("bus-id") final String busId) {
+        final Integer noOfHours= busService.getTimeSpentOnRoute(busId);
+        return new ResponseEntity<Integer>(noOfHours, HttpStatus.OK);
     }
 }
