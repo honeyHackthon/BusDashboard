@@ -1,5 +1,6 @@
 package com.honeywell.hackathon.controller;
 
+import com.honeywell.hackathon.entity.Location;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,6 @@ public class BusController {
 
     @Autowired
     private BusService busService;
-
 
     @GetMapping(value = "/fuelconsumption/{bus-id}")
     public ResponseEntity<Object> getFuelConsumption(@PathVariable("bus-id") final String busId) {
@@ -31,5 +31,10 @@ public class BusController {
     public ResponseEntity<Integer> getTimeSpentOnRoute(@PathVariable("bus-id") final String busId) {
         final Integer noOfHours= busService.getTimeSpentOnRoute(busId);
         return new ResponseEntity<Integer>(noOfHours, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/location/{bus-id}")
+    public ResponseEntity<Object> getLocation(@PathVariable("bus-id") final String busId) {
+        return busService.getLocation(busId);
     }
 }
