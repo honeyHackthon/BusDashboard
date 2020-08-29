@@ -11,4 +11,5 @@ public interface BusRepository extends JpaRepository<Bus, String> {
 	Bus getFuelConsumption(String busId);
 
 
+    Integer getSeatsLeft(String busId);
 }

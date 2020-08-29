@@ -43,6 +43,14 @@ public class BusService {
 		}
 	}
 
+	public Integer getOccupancyStatus(final  String busId) {
+		return buRepository.getSeatsLeft(busId);
+	}
+
+	public Integer getTimeSpentOnRoute(final String busId) {
+		return null;
+	}
+
 	public ResponseEntity<Object> getCapacity(String busId) {
 		Capacity capacity = locationRepository.getCapacity(busId);
 		if(capacity!=null){
