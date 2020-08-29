@@ -2,6 +2,7 @@ package com.honeywell.hackathon.service;
 
 import java.util.Optional;
 
+import com.honeywell.hackathon.entity.Capacity;
 import com.honeywell.hackathon.entity.Location;
 import com.honeywell.hackathon.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,15 @@ public class BusService {
 		Location location = locationRepository.getLocationByBus(busId);
 		if(location!=null){
 			return new ResponseEntity<Object>(location,HttpStatus.OK);
+		}else{
+			return new ResponseEntity<Object>(busId +" location is not available.", HttpStatus.NOT_FOUND);
+		}
+	}
+
+	public ResponseEntity<Object> getCapacity(String busId) {
+		Capacity capacity = locationRepository.getCapacity(busId);
+		if(capacity!=null){
+			return new ResponseEntity<Object>(capacity,HttpStatus.OK);
 		}else{
 			return new ResponseEntity<Object>(busId +" location is not available.", HttpStatus.NOT_FOUND);
 		}

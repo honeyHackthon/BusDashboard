@@ -34,4 +34,9 @@ public class BusController {
     public ResponseEntity<Object> getLocation(@PathVariable("bus-id") final String busId) {
         return busService.getLocation(busId);
     }
+
+    @GetMapping(value = "/location/{bus-id}")
+    public ResponseEntity<Object> getCapacity(@PathVariable("bus-id") final String busId) {
+        return busService.getCapacity(busId);
+    }
 }
