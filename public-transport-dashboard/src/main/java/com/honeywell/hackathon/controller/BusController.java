@@ -15,7 +15,6 @@ public class BusController {
     @Autowired
     private BusService busService;
 
-
     @GetMapping(value = "/fuelconsumption/{bus-id}")
     public ResponseEntity<Object> getFuelConsumption(@PathVariable("bus-id") final String busId) {
         return busService.getFuelConsumption(busId);
@@ -32,7 +31,7 @@ public class BusController {
     }
 
     @GetMapping(value = "/location/{bus-id}")
-    public ResponseEntity<Location> getLocation(@PathVariable("bus-id") final String busId) {
-        return null;
+    public ResponseEntity<Object> getLocation(@PathVariable("bus-id") final String busId) {
+        return busService.getLocation(busId);
     }
 }
