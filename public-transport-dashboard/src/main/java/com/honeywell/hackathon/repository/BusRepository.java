@@ -9,9 +9,6 @@ public interface BusRepository extends JpaRepository<Bus, String> {
 
 	@Query("select * from Bus where busId=:busId")
 	Bus getFuelConsumption(String busId);
-	
-	
-	
-	
+
 
 }

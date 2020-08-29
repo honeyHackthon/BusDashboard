@@ -18,7 +18,10 @@ public class BusController {
 	public ResponseEntity<Object> getFuelConsumption(String busId) {
 		return busService.getFuelConsumption(busId);
 	}
-	
-	
+
+	@GetMapping(value="/getFuelConsumption")
+	public ResponseEntity<Object> getLocation(String busId) {
+		return busService.getLocation(busId);
+	}
 
 }
